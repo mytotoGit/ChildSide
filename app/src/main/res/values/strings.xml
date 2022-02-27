@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Child Side</string>
+    <string name="default_notification_channel_id" translatable="false">personal_notifications</string>
+    <string name="change_default_home_dialog_body_settings">Change Default Home</string>
+</resources>

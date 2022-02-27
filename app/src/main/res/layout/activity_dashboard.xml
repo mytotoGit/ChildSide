@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_launcher_background"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.DashboardActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/layoutDateTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextClock
+                    android:id="@+id/txtTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:format12Hour="hh:mm"
+                    android:format24Hour="hh:mm"
+                    android:text="12:00"
+                    android:textColor="@color/white"
+                    android:textSize="64sp" />
+
+                <TextView
+                    android:id="@+id/txtDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="Day, Month 0"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutStepCounter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layoutDateTime"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="30dp"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <antonkozyriatskyi.circularprogressindicator.CircularProgressIndicator
+                                android:id="@+id/progressStepCounts"
+                                android:layout_width="150dp"
+                                android:layout_height="150dp"
+                                android:layout_gravity="center"
+                                app:direction="clockwise"
+                                app:dotColor="?colorPrimary"
+                                app:dotWidth="20dp"
+                                app:drawDot="true"
+                                app:enableProgressAnimation="true"
+                                app:fillBackground="false"
+                                app:gradientEndColor="@color/blue_200"
+                                app:gradientType="linear"
+                                app:progressBackgroundColor="#63CCCDD3"
+                                app:progressBackgroundStrokeWidth="8dp"
+                                app:progressCap="round"
+                                app:progressColor="@color/blue_700"
+                                app:progressStrokeWidth="10dp"
+                                app:startAngle="270"
+                                app:textColor="@color/white"
+                                app:textSize="16sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="sans-serif-condensed-light"
+                                android:text="Step Counter"
+                                android:textColor="@color/white" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/icon_time_counter"
+                                app:tint="@color/white"
+                                tools:ignore="contentDescription" />
+
+                            <TextView
+                                android:id="@+id/txtTimeCalculated"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:ellipsize="end"
+                                android:fontFamily="sans-serif-condensed-light"
+                                android:maxLines="1"
+                                android:text="------"
+                                android:textColor="@color/white" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:src="@drawable/icon_distance_counter"
+                                app:tint="@color/white"
+                                tools:ignore="contentDescription" />
+
+                            <TextView
+                                android:id="@+id/txtDistanceCalculated"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:ellipsize="end"
+                                android:fontFamily="sans-serif-condensed-light"
+                                android:maxLines="1"
+                                android:text="------"
+                                android:textColor="@color/white" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:src="@drawable/icon_calories_counter"
+                                app:tint="@color/white"
+                                tools:ignore="contentDescription" />
+
+                            <TextView
+                                android:id="@+id/txtCaloriesCalculated"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:ellipsize="end"
+                                android:fontFamily="sans-serif-condensed-light"
+                                android:maxLines="1"
+                                android:text="------"
+                                android:textColor="@color/white" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:src="@drawable/icon_speed_counter"
+                                app:tint="@color/white"
+                                tools:ignore="contentDescription" />
+
+                            <TextView
+                                android:id="@+id/txtSpeedCalculated"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:ellipsize="end"
+                                android:fontFamily="sans-serif-condensed-light"
+                                android:maxLines="1"
+                                android:text="------"
+                                android:textColor="@color/white" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardHealthTip"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="0dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp">
+
+                        <io.alterac.blurkit.BlurLayout
+                            android:id="@+id/blurLayoutHealth"
+                            android:layout_width="match_parent"
+                            android:layout_height="64dp"
+                            app:blk_blurRadius="12"
+                            app:blk_downscaleFactor="0.12"
+                            app:blk_fps="60" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif-condensed-medium"
+                            android:maxLines="1"
+                            android:paddingHorizontal="16dp"
+                            android:text="Health Tip"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutApps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/openAppDrawer"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:clickable="true"
+                    android:elevation="0dp"
+                    android:focusable="true"
+                    app:cardCornerRadius="48dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/animationView"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_centerInParent="true"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true"
+                            app:lottie_rawRes="@raw/logo" />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/bottomSheet"
+        style="@style/Widget.MaterialComponents.BottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/transparent"
+        android:elevation="0dp"
+        android:fitsSystemWindows="true"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+        <GridView
+            android:id="@+id/drawerGrid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:numColumns="4"
+            android:paddingHorizontal="8dp"
+            android:scrollbarSize="0dp"
+            android:stretchMode="columnWidth" />
+
+    </eightbitlab.com.blurview.BlurView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
