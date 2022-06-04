@@ -92,7 +92,8 @@ public class ScreenshotService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        stopCapture();
+        try {
+            stopCapture();
 
         // Upload File
         Uri uri = Uri.fromFile(new File(Preferences.getInstance(getApplicationContext()).getFilePath()));
@@ -132,7 +133,11 @@ public class ScreenshotService extends Service {
                         });
             }
         });
+        }catch (Exception e){
+
     }
+
+}
 
     public WindowManager getWindowManager() {
         return (wmgr);
@@ -146,7 +151,7 @@ public class ScreenshotService extends Service {
         new Thread() {
             @Override
             public void run() {
-                File output = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/" + "SS.png");
+                File output = new File(getExternalFilesDir(null) + "/" + "SS.png");
 
                 try {
                     FileOutputStream fos = new FileOutputStream(output);
@@ -156,7 +161,7 @@ public class ScreenshotService extends Service {
                     fos.close();
 
                     // Save Path To Preferences
-                    Preferences.getInstance(getApplicationContext()).setFilePath(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/" + "SS.png");
+                    Preferences.getInstance(getApplicationContext()).setFilePath(getExternalFilesDir(null) + "/" + "SS.png");
                     MediaScannerConnection.scanFile(ScreenshotService.this, new String[]{output.getAbsolutePath()}, new String[]{"image/png"}, null);
                 } catch (Exception e) {
                     Log.e(getClass().getSimpleName(), "Exception writing out screenshot", e);

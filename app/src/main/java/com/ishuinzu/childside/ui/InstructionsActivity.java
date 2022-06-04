@@ -43,11 +43,7 @@ public class InstructionsActivity extends AppCompatActivity implements View.OnCl
     private void loadInstructions() {
         instructionObjects = new ArrayList<>();
 
-        instructionObjects.add(new InstructionObject(R.raw.logo, "Instruction Title", "Instruction Description Here"));
-        instructionObjects.add(new InstructionObject(R.raw.logo, "Instruction Title", "Instruction Description Here"));
-        instructionObjects.add(new InstructionObject(R.raw.logo, "Instruction Title", "Instruction Description Here"));
-        instructionObjects.add(new InstructionObject(R.raw.logo, "Instruction Title", "Instruction Description Here"));
-        instructionObjects.add(new InstructionObject(R.raw.logo, "Instruction Title", "Instruction Description Here"));
+        instructionObjects.add(new InstructionObject(R.raw.logo, "Child", "It will help you monitor your child"));
 
         instructionAdapter = new InstructionAdapter(InstructionsActivity.this, instructionObjects);
         binding.pagerInstructions.setAdapter(instructionAdapter);

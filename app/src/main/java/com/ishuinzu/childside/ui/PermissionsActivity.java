@@ -37,7 +37,6 @@ public class PermissionsActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         binding = ActivityPermissionsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         init();
     }
 

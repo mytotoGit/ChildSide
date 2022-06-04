@@ -53,6 +53,7 @@ public class AccessCameraService extends HiddenCameraService {
         return null;
     }
 
+
     @Override
     public void onCreate() {
         super.onCreate();

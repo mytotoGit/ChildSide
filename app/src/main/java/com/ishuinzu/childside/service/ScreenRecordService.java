@@ -130,7 +130,7 @@ public class ScreenRecordService extends Service {
         }
         mediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
         mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        mediaRecorder.setOutputFile(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES) + "/" + videoQuality + curTime + ".mp4");
+        mediaRecorder.setOutputFile(getExternalFilesDir(null) + "/" + videoQuality + curTime + ".mp4");
         mediaRecorder.setVideoSize(mScreenWidth, mScreenHeight);
         mediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
         if (isAudio) {
@@ -148,7 +148,7 @@ public class ScreenRecordService extends Service {
         }
         try {
             // Save Path To Preferences
-            Preferences.getInstance(getApplicationContext()).setFilePath(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES) + "/" + videoQuality + curTime + ".mp4");
+            Preferences.getInstance(getApplicationContext()).setFilePath(getExternalFilesDir(null) + "/" + videoQuality + curTime + ".mp4");
             // Prepare Screen Recorder
             mediaRecorder.prepare();
         } catch (IllegalStateException | IOException e) {

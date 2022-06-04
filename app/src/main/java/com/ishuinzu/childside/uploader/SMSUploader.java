@@ -68,6 +68,7 @@ public class SMSUploader extends TimerTask {
                                 e.printStackTrace();
                             } finally {
                                 for (int i = 0; i < smsList.size(); i++) {
+                                    try {
                                     // Convert To SMSObject
                                     SMSObject smsObject = Utils.convertToSMSObject(smsList.get(i));
 
@@ -94,7 +95,12 @@ public class SMSUploader extends TimerTask {
                                                     }
                                                 }
                                             });
+                                    }catch (Exception e){
+                                        continue;
+                                    }
+
                                 }
+
                             }
                         }
                     });
